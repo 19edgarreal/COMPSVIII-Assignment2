@@ -1,25 +1,32 @@
 # Workflow Analysis
 
-## 1. What triggers the workflow?
+## 1. What triggers this workflow to run?
 
-The workflow is triggered when changes are pushed to the main branch.
+The workflow runs when code is pushed to the main branch or when a pull request is made to the main branch.
 
-## 2. What operating system does the workflow use?
+## 2. What are the four main steps this workflow performs?
 
-The workflow uses Ubuntu through GitHub Actions.
+The four main steps are:
 
-## 3. What does the workflow install?
+1. Checkout code
+2. Validate HTML
+3. Check links
+4. Upload artifact
 
-It installs the dependencies required for the project before deploying the website.
+After the build-and-test job succeeds, the website is deployed to GitHub Pages.
 
-## 4. What does the workflow build?
+## 3. What does the "Checkout code" step do and why is it necessary?
 
-The workflow prepares the website files for deployment.
+The "Checkout code" step downloads the repository's code into the GitHub Actions runner. This is necessary because the other workflow steps need access to the project's files to validate and deploy the website.
 
-## 5. Where is the website deployed?
+## 4. What is the purpose of the environment configuration?
 
-The website is deployed using GitHub Pages.
+The environment configuration specifies the GitHub Pages deployment environment and provides the URL for the deployed website. It also works with the permissions required to deploy the website.
 
-## 6. Why is this workflow useful?
+## 5. How does this automated deployment improve reliability compared to manual deployment?
 
-This workflow automatically deploys the website whenever changes are pushed to the main branch. This makes it easier to keep the live website updated without manually uploading files.
+Automated deployment improves reliability because the workflow automatically validates the website and deploys it when changes are pushed to the main branch. This reduces the chance of forgetting files or making mistakes during a manual deployment.
+
+## 6. What would happen if you pushed code to a different branch (not main)?
+
+The workflow can run its build and test process for a pull request targeting main, but the deployment job only runs for a push directly to the main branch. Therefore, pushing directly to another branch would not deploy the website to GitHub Pages.
