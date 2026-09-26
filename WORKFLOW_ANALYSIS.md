@@ -2,7 +2,7 @@
 
 ## 1. What triggers the workflow?
 
-The workflow is triggered when changes are pushed to the main branch.
+The workflow is triggered when changes are pushed to the main branch. This process also helps the team catch problems early and makes the deployment process more consistent.
 
 ## 2. What operating system does the workflow use?
 
